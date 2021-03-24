@@ -82,10 +82,7 @@
         "named": "never"
       }
     },
-    "typedef": [
-      true,
-      "call-signature"
-    ],
+    "typedef": false,
     "typedef-whitespace": {
       "options": [
         {
@@ -104,13 +101,7 @@
         }
       ]
     },
-    "variable-name": {
-      "options": [
-        "ban-keywords",
-        "check-format",
-        "allow-pascal-case"
-      ]
-    },
+    "variable-name": false,
     "whitespace": {
       "options": [
         "check-branch",
@@ -125,7 +116,7 @@
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
     "no-conflicting-lifecycle": true,
-    "no-host-metadata-property": true,
+    "no-host-metadata-property": false,
     "no-input-rename": true,
     "no-inputs-metadata-property": true,
     "no-output-native": true,
@@ -139,13 +130,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "app",
+      "b2a",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "app",
+      "b2a",
       "kebab-case"
     ]
   }
