@@ -6,15 +6,14 @@ import { B2aTableHeaderComponent } from './b2a-table-header/b2a-table-header.com
 import { B2aTableRowComponent } from './b2a-table-row/b2a-table-row.component';
 
 @NgModule({
-    imports: [],
-    exports: [
+    declarations: [
         B2aTableComponent,
         B2aTableCellComponent,
         B2aTableCellExpandComponent,
         B2aTableHeaderComponent,
         B2aTableRowComponent,
     ],
-    declarations: [
+    exports: [
         B2aTableComponent,
         B2aTableCellComponent,
         B2aTableCellExpandComponent,

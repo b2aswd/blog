@@ -1,5 +1,4 @@
-import { AfterContentInit, Component, ContentChildren, ElementRef, QueryList } from '@angular/core';
-import { B2aTableCellComponent } from '../b2a-table-cell/b2a-table-cell.component';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'b2a-table-header',
@@ -10,15 +9,4 @@ import { B2aTableCellComponent } from '../b2a-table-cell/b2a-table-cell.componen
         <ng-content></ng-content>
     `,
 })
-export class B2aTableHeaderComponent implements AfterContentInit {
-    @ContentChildren(B2aTableCellComponent) tableCell: QueryList<B2aTableCellComponent>;
-
-    padding = null;
-
-    constructor(private elRef: ElementRef<HTMLElement>) {}
-
-    ngAfterContentInit() {
-        const computedEl = window.getComputedStyle(this.elRef.nativeElement);
-        this.padding = computedEl.paddingLeft;
-    }
-}
+export class B2aTableHeaderComponent {}

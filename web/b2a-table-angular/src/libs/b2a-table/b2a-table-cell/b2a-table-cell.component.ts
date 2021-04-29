@@ -9,7 +9,7 @@ import { calculateWith, defaultIndent } from './b2a-table-cell-fns';
     `,
 })
 export class B2aTableCellComponent {
-    private _width = null;
+    private _width: string | null = null;
     @Input() set width(value: string | null) {
         if (value) {
             this._width = value;
@@ -20,7 +20,7 @@ export class B2aTableCellComponent {
         return this._width;
     }
 
-    private _level = 0;
+    private _level: number | null = 0;
     @Input() set level(value: number | null) {
         this._level = value;
         this._recalculateWidthUnit(this.width, this.level);
@@ -40,7 +40,7 @@ export class B2aTableCellComponent {
     }
 
     private _calculatedWith = this.width;
-    private _unit: string = null;
+    private _unit: string | null = null;
 
     constructor(private _domSanitizer: DomSanitizer) {}
 
