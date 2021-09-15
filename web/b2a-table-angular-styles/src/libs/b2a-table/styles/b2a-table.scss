@@ -1,0 +1,87 @@
+@use 'b2a-table-mixin.scss' as fn;
+
+/** Table **/
+.b2a-table {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+}
+
+/** Table Row **/
+.b2a-table__row {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    border: 1px solid #c0c0c0;
+    border-radius: 0;
+    background-color: #ffffff;
+    margin-bottom: 5px;
+    // row is expanded
+    &.active-row {
+        background-color: #f7f9fc;
+    }
+    // content for cells
+    .b2a-table__cell-group {
+        @include fn.table-cell-group();
+    }
+    // content for nested table
+    .b2a-table {
+        padding: 0 20px 20px 20px;
+        border-top: 1px solid #e4e9f2;
+        // nested table doesn't have margin
+        .b2a-table__row {
+            margin-bottom: 0px;
+            background-color: #f7f9fc;
+            border-color: #e4e9f2;
+            border-radius: 0;
+            border-top: 0;
+        }
+        .b2a-table__row-group {
+            .b2a-table__row {
+                &:first-child {
+                    border-top: 1px solid #e4e9f2;
+                }
+            }
+        }
+    }
+}
+
+/** Table Cell **/
+// default table-cell
+.b2a-table__cell {
+    @include fn.table-cell-shared();
+    flex-grow: 1;
+    width: 100%;
+}
+// table-cell with defined with
+.b2a-table__cell--width {
+    @include fn.table-cell-shared();
+    width: 450px;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+// table-cell with expand action
+.b2a-table__cell--expand {
+    @include fn.table-cell-shared();
+    @include fn.table-cell-expand-shared();
+    border-left: 1px solid #e4e9f2;
+}
+
+/** Table Header **/
+.b2a-table__header {
+    // header is basically cell-group
+    @include fn.table-cell-group();
+    .b2a-table__cell--expand {
+        height: auto;
+        min-height: auto;
+        border-left: 0;
+    }
+    .b2a-table__cell,
+    .b2a-table__cell--width {
+        height: auto;
+        min-height: auto;
+        font-size: 12px;
+        padding: 14px 0 14px 0;
+        color: #8992a3;
+        font-weight: bold;
+    }
+}
