@@ -3,7 +3,7 @@
 /** Table **/
 .b2a-table {
     display: block;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 /** Table Row **/
@@ -11,10 +11,10 @@
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
-    border: 1px solid #c0c0c0;
-    border-radius: 0;
-    background-color: #ffffff;
-    margin-bottom: 5px;
+    border-radius: var(--b2a-table__row-border-radius, 0);
+    border: var(--b2a-table__row-border, 1px solid #c0c0c0);
+    background-color: var(--b2a-table__row-background-color, #ffffff);
+    margin: var(--b2a-table__row-margin, 0 0 5px 0);
     // row is expanded
     &.active-row {
         background-color: #f7f9fc;
@@ -26,19 +26,24 @@
     // content for nested table
     .b2a-table {
         padding: 0 20px 20px 20px;
-        border-top: 1px solid #e4e9f2;
         // nested table doesn't have margin
         .b2a-table__row {
             margin-bottom: 0px;
-            background-color: #f7f9fc;
-            border-color: #e4e9f2;
-            border-radius: 0;
+            background-color: var(
+                --b2a-table--nested__row-background-color,
+                #f7f9fc
+            );
+            border: var(--b2a-table--nested__row-border, 1px solid #e4e9f2);
+            border-radius: var(--b2a-table--nested__row-border-radius, 0);
             border-top: 0;
         }
         .b2a-table__row-group {
             .b2a-table__row {
                 &:first-child {
-                    border-top: 1px solid #e4e9f2;
+                    border-top: var(
+                        --b2a-table--nested__row--first-border,
+                        1px solid #e4e9f2
+                    );
                 }
             }
         }
